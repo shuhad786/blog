@@ -9,10 +9,10 @@ class Post < ApplicationRecord
   validates :LikesCounter, numericality: { greater_than_or_equal_to: 0 }
 
   def update_posts_count
-    self.update(posts_count: self.posts.count)
+    update(posts_count: posts.count)
   end
 
   def recent_comments
-    self.comments.order(created_at: :desc).limit(5)
+    comments.order(created_at: :desc).limit(5)
   end
 end
