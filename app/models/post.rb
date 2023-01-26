@@ -8,8 +8,8 @@ class Post < ApplicationRecord
   validates :CommentsCounter, numericality: { greater_than_or_equal_to: 0 }
   validates :LikesCounter, numericality: { greater_than_or_equal_to: 0 }
 
-  def update_posts_count
-    update(posts_count: posts.count)
+  def update_post_counter
+    author.increment!(:posts_counter)
   end
 
   def recent_comments
