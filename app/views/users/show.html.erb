@@ -4,7 +4,29 @@
   <title>List of users in show</title>
 </head>
 <body>
-
-
+  <div class="container">
+    <div class="d-flex card align-self-center align-item-center justify-content-space-between">
+    <%= image_tag @user.photo, :size => "50x50", :class => "user_photo", alt: "user photo" %>
+      <div class="d-flex border card2 justify-content-space-between">
+        <h1 class="padding"><%= @user.name %></h1>
+        <p class="padding align-self-flexend justify-self-flex-end">Number of posts: <%= @user.PostCounter %></p>
+      </div>
+    </div>
+    <div class="border bio">
+      <h2 class="padding">Bio</h2>
+      <p class="padding"><%= @user.bio %></p>
+    </div>
+    <% @user.find_recent_posts.each do |post| %>
+      <div class="d-flex flex-direction margin-top-bottom border">
+        <h2 class="padding">Post #<%= post.id %></h2>
+        <p class="padding"><%= post.text %></p>
+        <div class="d-flex align-self-flexend">
+          <p class="padding">comments: <%= post.LikesCounter %></p>
+          <p class="padding">likes: <%= post.CommentsCounter %></p>
+        </div>
+      </div>
+    <% end %>
+    <button class="button align-self-center">See all posts</button>
+  </div>
 </body>
 </html>

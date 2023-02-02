@@ -4,7 +4,14 @@
   <title>List of users</title>
 </head>
 <body>
-
-
+  <% @users.each do |user| %>
+    <div class= "d-flex align-item-center justify-content-space-around">
+    <%= image_tag user.photo, :class => "user_photo", alt: "user photo" %>
+      <div class="d-flex border main-card justify-content-space-between">
+        <h1 class="padding"><%= user.name %></h1>
+        <p class="padding align-self-flexend justify-self-flex-end">Number of posts: <%= user.PostCounter %></p>
+      </div>
+    </div>
+  <% end %>
 </body>
 </html>
