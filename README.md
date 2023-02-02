@@ -165,8 +165,6 @@ Example:
 
 ## 👥 Author <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
-
 👤 **Shuhad Loofer**
 
 - GitHub: [@Shuhad786](https://github.com/Shuhad786)
