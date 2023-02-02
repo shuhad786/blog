@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>List of posts</title>
-</head>
-<body>
-
-
-</body>
-</html>
+<div class="container">
+  <div class= "d-flex align-item-center justify-content-space-between">
+    <%= image_tag @user.photo, :class => "user_photo", alt: "user photo" %>
+    <div class="d-flex border card4 justify-content-space-between margin-top-bottom">
+      <h1 class="padding"><%= @user.name %></h1>
+      <p class="padding align-self-flexend justify-self-flex-end">Number of posts: <%= @user.PostCounter %></p>
+    </div>
+  </div>
+  <% @user.posts.each do |post| %>
+  <%= link_to user_post_path(@user.id, post.id) do %>
+    <div class="border">
+      <h2>Post #<%= post.id %></h2>
+      <%= post.text %>
+    </div>
+    <% end %>
+  <div class="border margin-bottom">
+    <% post.recent_comments.each do |comment| %>
+      <p><%= comment.text %></p>
+    <% end %>
+  </div>
+  <% end %>
+  <button class="button align-self-center margin-top-bottom">Pagination</button>
+</div>

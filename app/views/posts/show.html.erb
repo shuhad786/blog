@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>List of posts in show</title>
-</head>
-<body>
+<div class="padding border">
+  <div class="d-flex card4 align-item-center justify-self-flex-end justify-content-space-between">
+    <h1 class="">Post# <%= @post.id %> by <%= @post.author.name %></h1>
+    <div class="d-flex justify-self-flex-end align-self-flexend">
+      <p class="padding margin">comments: <%= @post.CommentsCounter %></p>
+      <p class="padding margin">likes: <%= @post.LikesCounter %></p>
+    </div>
+  </div>
+  <p class="justify-self-flex-start align-self-flexend"><%= @post.text %></p>
+</div>
 
-
-</body>
-</html>
+<div class="padding border margin-top-bottom">
+<% @post.all_comments.each do |comment| %>
+<p><%= comment.author.name %>: <%= comment.text %></p>
+<% end %>
+</div>
