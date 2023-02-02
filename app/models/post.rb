@@ -11,7 +11,7 @@ class Post < ApplicationRecord
   after_create :update_post_counter
 
   def update_post_counter
-    author.increment!(:PostCounter)    
+    author.increment!(:PostCounter)
   end
 
   def recent_comments
