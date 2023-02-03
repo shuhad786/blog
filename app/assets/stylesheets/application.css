@@ -38,6 +38,19 @@
   margin: 0;
 }
 
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.link:hover {
+  color: chartreuse;
+}
+
+.height {
+  height: 90vh;
+}
+
 .padding {
   padding: 1em;
 }
@@ -64,6 +77,10 @@
 
 .justify-content-space-between {
   justify-content: space-between;
+}
+
+.justify-content-center {
+  justify-content: center;
 }
 
 .justify-self-flex-end {
@@ -100,7 +117,50 @@
   max-width: max-content;
 }
 
-.background-blue {
-  background-color: blue;
-  border-bottom: 2px solid orange;
+.form {
+  background-color: cornflowerblue;
+  width: 50%;
+  border: none;
+  border-radius: 5px;
+  height: 15em;
+}
+
+.label {
+  text-align: center;
+  color: whitesmoke;
+  font-size: 1.3em;
+}
+
+.title {
+  width: 50%;
+  margin: 1em;
+}
+
+.text-area {
+  margin: 1em;
+  height: 60%;
+  width: 50%;
+}
+
+.form-button {
+  width: 30%;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 0.5em;
+  height: 3em;
+  background-color: white;
+  color: cornflowerblue;
+  font-size: 1em;
+  font-weight: 1000;
+}
+
+.like-button {
+  width: fit-content;
+  border-radius: 10px;
+  margin-bottom: 0.5em;
+  height: 3em;
+  background-color: white;
+  color: cornflowerblue;
+  font-size: 1em;
+  font-weight: 1000;
 }

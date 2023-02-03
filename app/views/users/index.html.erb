@@ -1,5 +1,5 @@
 <% @users.each do |user| %>
-  <%= link_to user_path(user) do %>
+  <%= link_to user_path(user), class: "link" do %>
     <div class= "d-flex align-item-center justify-content-space-around">
     <%= image_tag user.photo, :class => "user_photo", alt: "user photo" %>
       <div class="d-flex border main-card justify-content-space-between">

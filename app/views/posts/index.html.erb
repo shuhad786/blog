@@ -7,17 +7,24 @@
     </div>
   </div>
   <% @user.posts.each do |post| %>
-  <%= link_to user_post_path(@user.id, post.id) do %>
-    <div class="border">
-      <h2>Post #<%= post.id %></h2>
-      <%= post.text %>
+    <%= link_to user_post_path(@user.id, post.id), class: "link" do %>
+      <div class="border padding">
+        <h2>Post #<%= post.id %></h2>
+        <%= post.text %>
+        <div class="d-flex align-self-flexend">
+          <p class="padding">comments: <%= post.CommentsCounter %></p>
+          <p class="padding">likes: <%= post.LikesCounter %></p>
+        </div>
+        <% end %>
+        <%= form_with url: "/users/#{@user.id}/posts/#{post.id}/likes" do |form| %>
+        <%= form.submit "Like Post", class: "link like-button" %>
+      </div>
+    <% end %>
+    <div class="border margin-bottom">
+      <% post.recent_comments.each do |comment| %>
+        <p><%= comment.text %></p>
+      <% end %>
     </div>
-    <% end %>
-  <div class="border margin-bottom">
-    <% post.recent_comments.each do |comment| %>
-      <p><%= comment.text %></p>
-    <% end %>
-  </div>
   <% end %>
   <button class="button align-self-center margin-top-bottom">Pagination</button>
 </div>
