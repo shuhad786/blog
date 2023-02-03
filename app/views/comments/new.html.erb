@@ -1,0 +1,7 @@
+<div class="d-flex justify-content-center align-item-center height">
+  <%= form_with model: @comment, url: user_post_comments_path, method: :post, local: true, scope: :comment, class: "form justify-content-center d-flex flex-direction align-item-center" do |form| %>
+    <%= form.label :text, class: "label" %>
+    <%= form.text_field :text, class: "text-area" %>
+    <%= form.submit "Create comment", class: "form-button" %>
+  <% end %>
+</div>

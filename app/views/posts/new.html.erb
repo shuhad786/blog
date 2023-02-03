@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-center align-item-center height">
+  <%= form_with model: @post, url: user_posts_path, method: :post, local: true, scope: :post, class: "form justify-content-center d-flex flex-direction align-item-center" do |form| %>
+    <%= form.label :title, class: "label" %>
+    <%= form.text_field :title, class: "title" %>
+    <%= form.label :text, class: "label" %>
+    <%= form.text_field :text, class: "text-area" %>
+    <%= form.submit "Create post", class: "form-button" %>
+  <% end %>
+</div>
+
