@@ -14,7 +14,7 @@ class PostsController < ApplicationController
       format.html { render :new, locals: { post: @post } }
     end
   end
-  
+
   def create
     @post = Post.new(post_params)
     @post.author = current_user
