@@ -26,5 +26,16 @@ RSpec.describe 'Post Page Index', type: :feature do
     expect(page).to have_content(@post.title)
   end
 
+  it 'shows the writer of the post' do
+    expect(page).to have_content("by #{@user.name}")
+  end
+
+  it 'shows the number of comments for the post' do
+    expect(page).to have_content('Comments: 5')
+  end
+
+  it 'shows the number of likes for the post' do
+    expect(page).to have_content('Likes: 0')
+  end
   
 end
