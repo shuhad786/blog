@@ -9,15 +9,14 @@ RSpec.describe 'Post Page Index', type: :feature do
       PostCounter: 3
     )
     @post = Post.create(title: 'Hello', text: 'My world', CommentsCounter: 0, LikesCounter: 0, user_id: @user.id,
-    author_id: @user.id)
+                        author_id: @user.id)
     5.times do
       Comment.create(post: @post,
-        author: @user,
-        text: 'hello yimi',
-        user_id: @user.id,
-        post_id: @post.id,
-        author_id: @user.id
-      )
+                     author: @user,
+                     text: 'hello yimi',
+                     user_id: @user.id,
+                     post_id: @post.id,
+                     author_id: @user.id)
     end
     visit user_post_path(@user.id, @post.id)
   end
@@ -37,5 +36,16 @@ RSpec.describe 'Post Page Index', type: :feature do
   it 'shows the number of likes for the post' do
     expect(page).to have_content('Likes: 0')
   end
-  
+
+  it 'shows the body of the post' do
+    expect(page).to have_content('My world')
+  end
+
+  it 'shows the username of each commentor' do
+    expect(page).to have_content(@user.name)
+  end
+
+  it 'shows comment of each commentor' do
+    expect(page).to have_content('hello yimi')
+  end
 end

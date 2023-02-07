@@ -9,18 +9,18 @@ RSpec.describe 'Post Page Index', type: :feature do
       PostCounter: 3
     )
     @post = Post.create(title: 'Hello',
-      text: 'My world',
-      CommentsCounter: 0,
-      LikesCounter: 0,
-      user_id: @user.id,
-      author_id: @user.id)
+                        text: 'My world',
+                        CommentsCounter: 0,
+                        LikesCounter: 0,
+                        user_id: @user.id,
+                        author_id: @user.id)
     5.times do
       Comment.create(post: @post,
-        author: @user,
-        text: 'hello yimi',
-        user_id: @user.id,
-        post_id: @post.id,
-        author_id: @user.id)
+                     author: @user,
+                     text: 'hello yimi',
+                     user_id: @user.id,
+                     post_id: @post.id,
+                     author_id: @user.id)
     end
     visit user_posts_path(@user.id)
   end
