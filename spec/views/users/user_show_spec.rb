@@ -9,23 +9,20 @@ RSpec.describe 'User Page show', type: :feature do
       PostCounter: 3
     )
     @post1 = Post.create(title: 'Hello',
-      text: 'My world',
-      CommentsCounter: 0,
-      LikesCounter: 0,
-      author_id: @user.id
-    )
+                         text: 'My world',
+                         CommentsCounter: 0,
+                         LikesCounter: 0,
+                         author_id: @user.id)
     @post2 = Post.create(title: 'Hi',
-      text: 'My earth',
-      CommentsCounter: 0,
-      LikesCounter: 0,
-      author_id: @user.id
-    )
+                         text: 'My earth',
+                         CommentsCounter: 0,
+                         LikesCounter: 0,
+                         author_id: @user.id)
     @post3 = Post.create(title: 'Hey',
-      text: 'My universe',
-      CommentsCounter: 0,
-      LikesCounter: 0,
-      author_id: @user.id
-    )
+                         text: 'My universe',
+                         CommentsCounter: 0,
+                         LikesCounter: 0,
+                         author_id: @user.id)
     visit user_path(@user.id)
   end
 
@@ -60,9 +57,4 @@ RSpec.describe 'User Page show', type: :feature do
     click_link('See all posts')
     expect(page).to have_current_path(user_posts_path(@user))
   end
-
-  # it "When I click to see all posts button, it should redirects me to the user's post's index page" do
-  #   click_link('See all posts')
-  #   expect(page).to have_current_path(user_posts_path(@user))
-  # end
 end

@@ -9,10 +9,10 @@ RSpec.describe 'Post Page Show', type: :feature do
       PostCounter: 3
     )
     @post = Post.create(title: 'Hello',
-      text: 'My world',
-      CommentsCounter: 0,
-      LikesCounter: 0,
-      author_id: @user.id)
+                        text: 'My world',
+                        CommentsCounter: 0,
+                        LikesCounter: 0,
+                        author_id: @user.id)
     5.times do
       Comment.create(post: @post,
                      author: @user,

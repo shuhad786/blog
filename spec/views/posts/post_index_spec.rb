@@ -57,7 +57,7 @@ RSpec.describe 'Post Page Index', type: :feature do
   end
 
   it 'redirects to posts show page' do
-    click_link ('My world')
+    click_link('My world')
     expect(page).to have_current_path(user_post_path(@user, @post))
   end
 end
