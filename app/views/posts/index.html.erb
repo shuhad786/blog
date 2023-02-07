@@ -12,8 +12,8 @@
         <h2>Post #<%= post.id %></h2>
         <%= post.text %>
         <div class="d-flex align-self-flexend">
-          <p class="padding">comments: <%= post.CommentsCounter %></p>
-          <p class="padding">likes: <%= post.LikesCounter %></p>
+          <p class="padding">Comments: <%= post.CommentsCounter %></p>
+          <p class="padding">Likes: <%= post.LikesCounter %></p>
         </div>
         <% end %>
         <%= form_with url: "/users/#{@user.id}/posts/#{post.id}/likes" do |form| %>
