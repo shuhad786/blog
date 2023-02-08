@@ -164,3 +164,9 @@
   font-size: 1em;
   font-weight: 1000;
 }
+
+.sign-up {
+  background-color: cornflowerblue;
+  border-radius: 20px;
+  margin: 2em 20em 0 20em;
+}
