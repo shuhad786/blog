@@ -1,6 +1,6 @@
 <div class="container">
   <div class= "d-flex align-item-center justify-content-space-between">
-    <%= image_tag @user.photo, :class => "user_photo", alt: "user photo" %>
+    <%= image_tag @user.photo, class: "user_photo margin-right", alt: "user photo" %>
     <div class="d-flex border card4 justify-content-space-between margin-top-bottom">
       <h1 class="padding"><%= @user.name %></h1>
       <p class="padding align-self-flexend justify-self-flex-end">Number of posts: <%= @user.PostCounter %></p>
