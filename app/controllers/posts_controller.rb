@@ -32,4 +32,10 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :text)
   end
+
+  def destroy
+    Post.delete(params[:id])
+    redirect_to user_posts_path(params[:user_id])
+  end
+
 end
