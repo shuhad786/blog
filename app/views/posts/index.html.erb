@@ -15,11 +15,18 @@
           <p class="padding">Comments: <%= post.CommentsCounter %></p>
           <p class="padding">Likes: <%= post.LikesCounter %></p>
         </div>
-        <% end %>
-        <%= form_with url: "/users/#{@user.id}/posts/#{post.id}/likes" do |form| %>
-        <%= form.submit "Like Post", class: "link like-button" %>
-      </div>
     <% end %>
+
+        <div class="d-flex justify-content-space-between">
+          <%= form_with url: "/users/#{@user.id}/posts/#{post.id}/likes" do |form| %>
+            <%= form.submit "Like Post", class: "link like-button" %>
+          <% end %>
+          <% if can? :delete, @post %>
+            <%= button_to "Delete post", user_post_path(post.author_id, post.id), method: :delete, data: { turbo: false }, class: "link like-button" %>
+          <% end %>
+          <%= link_to 'Create comment', new_user_post_comment_path(@user.id, post.id), class: "link sign-out" %>
+        </div>
+      </div>
     <div class="border margin-bottom">
       <% post.recent_comments.each do |comment| %>
         <p><%= comment.text %></p>

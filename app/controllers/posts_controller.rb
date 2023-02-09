@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
-    @posts = User.find(params[:user_id]).posts.includes(:comments)
     @user = User.find(params[:user_id])
+    @posts = @user.posts.includes(:comments, :likes)
   end
 
   def show
@@ -31,5 +33,10 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :text)
+  end
+
+  def destroy
+    Post.delete(params[:id])
+    redirect_to user_posts_path(params[:user_id])
   end
 end

@@ -1,6 +1,6 @@
 <div class="padding border">
   <div class="d-flex card4 align-item-center justify-self-flex-end justify-content-space-between">
-    <h1 class="">Post# <%= @post.id %> by <%= @post.author.name %></h1>
+    <h1>Post# <%= @post.id %> by <%= @post.author.name %></h1>
     <div class="d-flex justify-self-flex-end align-self-flexend">
       <p class="padding margin">Comments: <%= @post.CommentsCounter %></p>
       <p class="padding margin">Likes: <%= @post.LikesCounter %></p>
@@ -10,7 +10,10 @@
 </div>
 
 <div class="padding border margin-top-bottom">
-<% @post.all_comments.each do |comment| %>
-<p><%= comment.author.name %>: <%= comment.text %></p>
-<% end %>
+  <% @post.all_comments.each do |comment| %>
+    <p><%= comment.author.name %>: <%= comment.text %></p>
+    <% if can? :delete, @comment %>
+      <%= button_to "Delete comment", user_post_comment_path(comment.author, comment.post, comment), method: :delete, data: { turbo: false }, class: "sign-out" %>
+    <% end %>
+  <% end %>
 </div>
