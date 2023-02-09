@@ -9,6 +9,7 @@
   <div class="border bio">
     <h2 class="padding">Bio</h2>
     <p class="padding"><%= @user.bio %></p>
+    <%= link_to 'Create post', new_user_post_path(@user.id), class: "sign-out" %>
   </div>
   <% @user.find_recent_posts.each do |post| %>
     <div class="d-flex flex-direction margin-top-bottom border">
