@@ -1,11 +1,18 @@
-<% @users.each do |user| %>
-  <%= link_to user_path(user), class: "link" do %>
-    <div class= "d-flex align-item-center justify-content-space-around">
-    <%= image_tag user.photo, :class => "user_photo", alt: "user photo" %>
-      <div class="d-flex border main-card justify-content-space-between">
-        <h1 class="padding"><%= user.name %></h1>
-        <p class="padding align-self-flexend justify-self-flex-end">Number of posts: <%= user.PostCounter %></p>
+<% if user_signed_in? %>
+  <%= button_to 'Sign out', destroy_user_session_path(@user), method: :delete, data: { turbo: false }, class: "sign-out" %>
+
+  <% @users.each do |user| %>
+    <%= link_to user_path(user), class: "link" do %>
+      <div class= "d-flex align-item-center justify-content-space-around">
+      <%= image_tag user.photo, :class => "user_photo", alt: "user photo" %>
+        <div class="d-flex border main-card justify-content-space-between">
+          <h1 class="padding"><%= user.name %></h1>
+          <p class="padding align-self-flexend justify-self-flex-end">Number of posts: <%= user.PostCounter %></p>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
-<% end %>
+<% else %>
+  <div class="sign-in-color"><%= link_to 'Sign In', new_user_session_path, class: "sign-in" %></div>
+<% end%>
+
