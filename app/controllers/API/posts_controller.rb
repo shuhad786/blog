@@ -1,8 +1,7 @@
-class API::PostsController < ApplicationController
+class Api::PostsController < ApplicationController
 
   def index
-    @user = User.find(params[:user_id])
-    @posts = @user.posts.order(:created_at DESC).includes(:comments)
-    json_response(@posts)
+    @posts = Post.where(author_id: params[:user_id])
+    render json: @posts
   end
 end

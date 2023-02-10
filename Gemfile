@@ -82,7 +82,3 @@ end
 gem 'devise'
 
 gem 'cancancan'
-
-gem 'devise-jwt'
-
-gem 'rack-cors'

@@ -1,9 +1,8 @@
-class API::CommentsController < ApplicationController
+class Api::CommentsController < ApplicationController
 
   def index
-    @user = User.find(params[:user_id])
-    @post = @user.posts.find(params[:post_id])
-    json_response(@post.comments)
+    @post = Post.find(params[:post_id])
+    render json: @post.comments
   end
 
   def create
@@ -12,7 +11,7 @@ class API::CommentsController < ApplicationController
     @comment.post_id = params[:post_id]
     post = Post.find(params[:post_id])
     @comment.save!
-    json_response(@comment, :created)
+    render json: @comment, status: :created
   end
 
   def comment_params
