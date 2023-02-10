@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://rubygems.org/'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.3'
@@ -82,3 +82,7 @@ end
 gem 'devise'
 
 gem 'cancancan'
+
+gem 'devise-jwt'
+
+gem 'rack-cors'

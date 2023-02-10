@@ -1,7 +1,8 @@
-class ApplicationController < ActionController::Base
+class ApplicationController < ActionController::API
   protect_from_forgery with: :exception
 
   before_action :update_allowed_parameters, if: :devise_controller?
+  respond_to :json
 
   protected
 

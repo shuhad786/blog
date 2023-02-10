@@ -4,6 +4,8 @@ class CommentsController < ApplicationController
     @posts = @user.posts
     @post = Post.new
     @comment = Comment.new
+
+    render json: comments
   end
 
   def create
@@ -13,6 +15,7 @@ class CommentsController < ApplicationController
     post = Post.find(params[:post_id])
     if @comment.save
       redirect_to user_post_path(current_user.id, post)
+      render json: comment
     else
       render :new
     end
