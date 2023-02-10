@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_action :update_allowed_parameters, if: :devise_controller?
   skip_before_action :verify_authenticity_token
+
   protected
 
   def update_allowed_parameters
